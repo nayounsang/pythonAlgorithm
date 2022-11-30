@@ -6,6 +6,7 @@ def make_tree(value, N):
 
 
 def init(tree, arr, left, right, node, func):
+    # init(tree,arr,0,len(arr)-1,1,func)
     if left == right:
         tree[node] = arr[left]
         return
