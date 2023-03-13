@@ -64,5 +64,3 @@ def isPrime(n):
         if not millerRabin(a, m, k, n):
             return False
     return True
-
-# C:/Users/user/PycharmProjects/pythonProject2
