@@ -6,7 +6,6 @@ a = random(2,n-2)
 b0 = (a ^ m) % n
 if |b0| == 1:
     n is prime maybe...
-    return
 for i in range(1,k):
     b(i) = (b(i-1)^2) % n
     if b(i) == 1:
@@ -18,7 +17,7 @@ for i in range(1,k):
 """
 
 
-def power(x, y, r):
+def power(x, y, r): # 빠른 거듭제곱을 위함
     # (x^y)%r
     result = 1
     x = x % r
