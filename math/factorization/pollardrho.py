@@ -1,21 +1,4 @@
-"""
-if n > 1 and n % 2 == 1:
-    (n - 1) % 2 == 0
-    n - 1 = (2 ^ k) * m (k > 1 and m % 2 == 1)
-a = random(2,n-2)
-b0 = (a ^ m) % n
-if |b0| == 1:
-    n is prime maybe...
-    return
-for i in range(1,k):
-    b(i) = (b(i-1)^2) % n
-    if b(i) == 1:
-        not prime
-        break
-    elif b(i) == -1:
-        prime
-        break
-"""
+import math
 import random
 
 
@@ -64,3 +47,39 @@ def isPrime(n):
         if not millerRabin(a, m, k, n):
             return False
     return True
+
+
+def func(val, n, c):
+    return ((val ** 2 % n) + c + n) % n
+
+
+def pollardrho(n):
+    if isPrime(n):
+        return n
+    if n == 1:
+        return 1
+    if not n & 1:
+        return 2
+    x = random.randrange(2, n)
+    y = x
+    c = random.randrange(1, n)
+    d = 1
+    while d == 1:
+        x = func(x, n, c)
+        y = func(func(y, n, c), n, c)
+        d = math.gcd(abs(x - y), n)
+        if d == n:
+            return pollardrho(n)
+    if isPrime(d):
+        return d
+    else:
+        return pollardrho(d)
+
+
+def factorization(n):
+    result = []
+    while n > 1:
+        D = pollardrho(n)
+        result.append(D)
+        n = n // D
+    return result
