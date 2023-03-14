@@ -6,7 +6,6 @@ a = random(2,n-2)
 b0 = (a ^ m) % n
 if |b0| == 1:
     n is prime maybe...
-    return
 for i in range(1,k):
     b(i) = (b(i-1)^2) % n
     if b(i) == 1:
@@ -19,7 +18,7 @@ for i in range(1,k):
 import random
 
 
-def power(x, y, r):
+def power(x, y, r): # 빠른 거듭제곱을 위함
     # (x^y)%r
     result = 1
     x = x % r
@@ -55,8 +54,8 @@ def isPrime(n):
     while not m & 1:
         k += 1
         m = m >> 1
-    alist = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
-    if n in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71]:
+    alist = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73]
+    if n in alist:
         return True
     for a in alist:
         if a > n:
