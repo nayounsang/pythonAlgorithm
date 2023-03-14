@@ -16,7 +16,6 @@ for i in range(1,k):
         prime
         break
 """
-import random
 
 
 def power(x, y, r):
@@ -36,7 +35,7 @@ def millerRabin(ran, m, k, n):
     if x == 1 or x == n - 1:
         return True
     for i in range(1, k):
-        xx = (x ^ 2) % n
+        xx = (x ** 2) % n
         if xx == 1:
             return False
         elif xx == n - 1:
@@ -55,8 +54,8 @@ def isPrime(n):
     while not m & 1:
         k += 1
         m = m >> 1
-    alist = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
-    if n in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71]:
+    alist = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73]
+    if n in alist:
         return True
     for a in alist:
         if a > n:
