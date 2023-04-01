@@ -32,4 +32,6 @@ def query(tree, start, end, func, cap, default):
             result = func(result, tree[end])
         start = start >> 1
         end = end >> 1
+    if start == end:
+        result = func(result,tree[start])
     return result
