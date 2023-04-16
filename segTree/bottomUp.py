@@ -27,9 +27,9 @@ def query(tree, start, end, func, cap, default):
         if start & 1:
             result = func(result, tree[start])
             start += 1
-        if end & 1:
-            end -= 1
+        if not end & 1:
             result = func(result, tree[end])
+            end -= 1
         start = start >> 1
         end = end >> 1
     if start == end:
