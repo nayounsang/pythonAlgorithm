@@ -34,7 +34,7 @@ def farthest():
             u2 = 0  # node에서 가장 깊은 거리
             for vv, nn in dp[node]:
                 if nn != n:
-                    u2 = max(u2, vv) + 1
+                    u2 = max(u2, vv + 1) 
             up[n] = max(u1, u2)
             max_dist[n] = max(up[n], d)  # 두가지중 큰 것이 답 
             q.append(n)
