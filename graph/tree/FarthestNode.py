@@ -11,7 +11,7 @@ def treedp(node, par):
         value = max(value, v)
         if not dp[node]:
             heappush(dp[node], (v, n))
-        elif v > dp[node][0]:
+        elif v > dp[node][0][0]:
             heappop(dp[node])
             heappush(dp[node], (v, n))
     deep[node] = value
