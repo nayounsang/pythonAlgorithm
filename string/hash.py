@@ -17,4 +17,4 @@ rabin, power = initHash('abc', 3, {'a': 1, 'b': 2, 'c': 3})
 
 
 def getHash(l, r):
-    return (((R + rabin[r] - (rabin[l - 1] if l - 1 > 0 else 0)) % R) * power[r-l+1]) % R
+    return (R + rabin[r] - (rabin[l - 1] if l > 0 else 0) * power[r - l + 1] % R) % R
